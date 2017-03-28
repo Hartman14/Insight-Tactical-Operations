@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insight - Tactical Operations", "Insight - Tactical Operations.csproj", "{788F1FF5-CC4B-356F-0519-A2317AF98477}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insight - Tactical Operations.Editor", "Insight - Tactical Operations.Editor.csproj", "{FD9CFE02-1048-1E6D-026C-5CBD9E72329E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{788F1FF5-CC4B-356F-0519-A2317AF98477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788F1FF5-CC4B-356F-0519-A2317AF98477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788F1FF5-CC4B-356F-0519-A2317AF98477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788F1FF5-CC4B-356F-0519-A2317AF98477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD9CFE02-1048-1E6D-026C-5CBD9E72329E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9CFE02-1048-1E6D-026C-5CBD9E72329E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9CFE02-1048-1E6D-026C-5CBD9E72329E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9CFE02-1048-1E6D-026C-5CBD9E72329E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
