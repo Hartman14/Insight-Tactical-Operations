@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BulletHandler : MonoBehaviour {
 
+    
+
 	// Use this for initialization
 	void Start () {
 		
@@ -17,7 +19,9 @@ public class BulletHandler : MonoBehaviour {
     //deletes stray bullets
     void OnTriggerEnter()
     {
+
         Destroy(this.gameObject);
+        
     }
 
 }

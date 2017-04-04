@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 newPosition;
 
+    //---------------------------------------------------------------------------------------------------------------------------
+
     //bool onGround = false;
 
     void Start()
@@ -50,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    //----------------------------------------------------------------------------------------------------------------------------------
 
     // Update is called once per frame
     void Update()
@@ -75,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
             moveToPosition();
         }
     }
+
+    //--------------------------------------------------------------------------------------------------------------------------------
 
     //moves character
     void moveToPosition()

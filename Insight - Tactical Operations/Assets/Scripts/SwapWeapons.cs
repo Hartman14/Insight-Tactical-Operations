@@ -5,7 +5,9 @@ using UnityEngine;
 public class SwapWeapons : MonoBehaviour {
 
     public GameObject Rifle;
+    public GameObject RifleBulletSpawner;
     public GameObject Pistol;
+    public GameObject PistolBulletSpawner;
 
     bool Primary = false;
     bool Secondary = false;
@@ -14,7 +16,13 @@ public class SwapWeapons : MonoBehaviour {
     void Start()
     {
         Primary = true;
+        Rifle.SetActive(true);
+        RifleBulletSpawner.SetActive(true);
+        Pistol.SetActive(false);
+        PistolBulletSpawner.SetActive(false);
     }
+
+    //------------------------------------------------------------------------------------------------------
 
     // Update is called once per frame
     void Update()
@@ -29,10 +37,13 @@ public class SwapWeapons : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 Rotate();
+
             }
             isActive();
         //}
     }
+
+    //-----------------------------------------------------------------------------------------------------------
 
     void Rotate()
     {
@@ -51,21 +62,42 @@ public class SwapWeapons : MonoBehaviour {
 
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+
     void isActive()
     {
 
         if (Primary)
         {
             Rifle.SetActive(true);
+            RifleBulletSpawner.SetActive(true);
             Pistol.SetActive(false);
+            PistolBulletSpawner.SetActive(false);
         }
 
         else if (Secondary)
         {
             Rifle.SetActive(false);
+            RifleBulletSpawner.SetActive(false);
             Pistol.SetActive(true);
+            PistolBulletSpawner.SetActive(true);
         }
 
+    }
+
+    //---------------------------------------------------------------------------------------------------------------
+
+    public GameObject getActiveGun()
+    {
+        if (Primary)
+        {
+            return Rifle.gameObject;
+        }
+
+        else
+        {
+            return Pistol.gameObject;
+        }
     }
 
 }

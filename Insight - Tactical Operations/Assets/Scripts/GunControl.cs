@@ -40,36 +40,45 @@ public class GunControl : MonoBehaviour {
         //fireGun = GetComponent<AudioSource>();
     }
 
+    //-----------------------------------------------------------------------------------------------------------
+
+
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !InAction)
+        if (ActiveGun())
         {
-            //fireGun.PlayOneShot(gunFireSound, 1f);
-            Attack();
-        }
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !InAction)
+            {
+                //fireGun.PlayOneShot(gunFireSound, 1f);
+                Attack();
+            }
 
-        if (!InAction)
-        {
-            InAction = false;
-        }
+            if (/*!GetComponent<Animation>().isPlaying && gunFireAnim*/ gunFiring)
+            {
+                gunFiring = false;
+                InAction = false;
 
-        if (/*!GetComponent<Animation>().isPlaying && gunFireAnim*/ gunFiring)
-        {
-            gunFiring = false;
-            InAction = false;
-            bullet.SetActive(false);
-            needReload = true;
-            FireProjectile();
-        }
+                needReload = true;
+                FireProjectile();
+            }
 
-        if (needReload)
-        {
-            Reload();
+
+            if (!InAction)
+            {
+                InAction = false;
+            }
+
+
+            if (needReload)
+            {
+                Reload();
+            }
         }
 
     }
+
+    //-------------------------------------------------------------------------------------------------------------------
 
     void Attack()
     {
@@ -81,6 +90,8 @@ public class GunControl : MonoBehaviour {
 
     }
 
+    //-------------------------------------------------------------------------------------------------------------------------
+
     void FireProjectile()
     {
 
@@ -88,6 +99,8 @@ public class GunControl : MonoBehaviour {
         projectile.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
         Debug.Log("show spawn reached");
     }
+
+    //---------------------------------------------------------------------------------------------------------------------
 
     public GameObject getProjectile()
     {
@@ -99,4 +112,21 @@ public class GunControl : MonoBehaviour {
         
 
     }
+
+    //------------------------------------------------------------------------------------------------------------------
+
+    private bool ActiveGun()
+    {
+        if(GetComponent<SwapWeapons>().getActiveGun() == Gun.gameObject)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+
+    }
+
 }
