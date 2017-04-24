@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     /*
     //these are for future use, if I can get a working character model
@@ -58,25 +59,30 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        /*if (!isLocalPlayer) only commented out for testing purposes, uncomment when you do a build.
+        {
+            return;
+        }*/
         movementSequence();
 
     }
 
+    //----------------------------------------------------------------------------------------------------------------------------------
+
     void movementSequence()
     {
-        if ((Time.deltaTime == 0) /*|| isDead will be added here later */)
-        {
-            
-        }
-
-        else
+        if ((Time.deltaTime != 0) /*|| isDead will be added here later */)
         {
             //rotates player
             rotate();
 
             //move to postion
             moveToPosition();
+        }
+
+        else
+        {
+            
         }
     }
 

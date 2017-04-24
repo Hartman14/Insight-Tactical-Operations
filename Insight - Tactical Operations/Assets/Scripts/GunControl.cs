@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
-public class GunControl : MonoBehaviour {
+public class GunControl : NetworkBehaviour {
 
     
 
@@ -60,7 +61,7 @@ public class GunControl : MonoBehaviour {
                 InAction = false;
 
                 needReload = true;
-                FireProjectile();
+                CmdFireProjectile();
             }
 
 
@@ -91,12 +92,16 @@ public class GunControl : MonoBehaviour {
     }
 
     //-------------------------------------------------------------------------------------------------------------------------
-
-    void FireProjectile()
+    [Command]
+    void CmdFireProjectile()
     {
 
         projectile = (GameObject)Instantiate(bullet, ShotSpawn.transform.position, ShotSpawn.gameObject.transform.rotation);
         projectile.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
+
+        //spawns network bullets
+        NetworkServer.Spawn(projectile);
+
         Debug.Log("show spawn reached");
     }
 
