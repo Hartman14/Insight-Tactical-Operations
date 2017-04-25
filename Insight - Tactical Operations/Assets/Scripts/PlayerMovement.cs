@@ -59,7 +59,7 @@ public class PlayerMovement : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (!isLocalPlayer) only commented out for testing purposes, uncomment when you do a build.
+        /*if (!isLocalPlayer) //only commented out for testing purposes, uncomment when you do a build.
         {
             return;
         }*/
